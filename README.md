@@ -1,7 +1,51 @@
-<p align="center"><img src="https://avatars0.githubusercontent.com/u/64492989?s=200&v=4" width="150"></p>
+<p align="center"><img src="media/logo.png" width="150"></p>
 
 # nkn-openapi-client
-A client for the NKN OpenAPI written in go
+A client library for the NKN OpenAPI written in go
+
+```go
+package main
+
+import (
+	"fmt"
+	"log"
+
+	client "github.com/omani/nkn-openapi-client"
+)
+
+func checkerr(err error) {
+	if err != nil {
+		log.Fatal(err)
+	}
+}
+
+func main() {
+	c := client.New()
+	c.SetAddress("https://openapi.nkn.org/api/v1")
+
+	resp, err := c.GetRegisteredNames()
+	checkerr(err)
+
+	for _, n := range resp.Data {
+		fmt.Println(n.Name)
+	}
+
+	if !resp.HasMore() {
+		return
+	}
+	// we have more than one page. fetch one more page.
+	err = c.Next(resp)
+	checkerr(err)
+
+	for _, n := range resp.Data {
+		fmt.Println(n.Name)
+	}
+}
+```
+
+This repository comes with a simple example CLI app in `cmd/`.
+
+# CLI App 
 
 ## Install
 `go install github.com/omani/nkn-openapi-client/cmd/nkn-openapi-client@latest`
