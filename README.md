@@ -72,6 +72,10 @@ cd cmd/nkn-openapi-client/
 go run main.go transactions --address NKNJ6Tka2rcrqT4FPJTjfoWQLjvahctSiyRF
 ```
 
+Output:
+<p><img src="media/shot.png"></p>
+
+
 #### Show transactions with a given hash
 ```
 cd cmd/nkn-openapi-client/
