@@ -17,6 +17,12 @@ cd cmd
 go run main.go transactions --address NKNJ6Tka2rcrqT4FPJTjfoWQLjvahctSiyRF
 ```
 
+### Show transactions with a given hash
+```
+cd cmd
+go run main.go transactions --hash 993a8f8ec9ca3a295e8873c573759d11b844c698e0e50f4edd1fa50751c2d879
+```
+
 ### Show block at a given height
 ```
 cd cmd
