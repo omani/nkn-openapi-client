@@ -4,7 +4,7 @@
 A client for the NKN OpenAPI written in go
 
 ## Install
-`go install github.com/omani/nkn-openapi-client/cmd@latest`
+`go install github.com/omani/nkn-openapi-client/cmd/nkn-openapi-client@latest`
 
 
 ## Usage
