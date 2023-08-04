@@ -43,47 +43,56 @@ func main() {
 }
 ```
 
-This repository comes with a simple example CLI app in `cmd/`.
+Unit tests are available in `client_test.go`:
 
-# CLI App 
+Run the tests in the root of the repository with `go test`.
 
-## Install
+
+### This repository comes with a simple example CLI app in `cmd/`.
+
+---
+
+## CLI App
+
+### Install
 `go install github.com/omani/nkn-openapi-client/cmd/nkn-openapi-client@latest`
 
 
-## Usage
-### Clone this repository
+### Usage
+#### Clone this repository
 `git clone https://github.com/omani/nkn-openapi-client`
 
-### Show transactions of an NKN wallet address:
+#### Show transactions of an NKN wallet address:
 ```
 cd cmd
 go run main.go transactions --address NKNJ6Tka2rcrqT4FPJTjfoWQLjvahctSiyRF
 ```
 
-### Show transactions with a given hash
+#### Show transactions with a given hash
 ```
 cd cmd
 go run main.go transactions --hash 993a8f8ec9ca3a295e8873c573759d11b844c698e0e50f4edd1fa50751c2d879
 ```
 
-### Show block at a given height
+#### Show block at a given height
 ```
 cd cmd
 go run main.go blocks --height 5648381
 ```
 
-### Show block with a given hash
+#### Show block with a given hash
 ```
 cd cmd
 go run main.go blocks --hash 0d48328a5005e7455c6a5e2a0b5bc346b09fbae129f1775589be83657850656a
 ```
 
-### Use your own NKN OpenAPI instance by providing a `--url` flag
+#### Use your own NKN OpenAPI instance by providing a `--url` flag
 ```
 cd cmd
 go run main.go --url https://my-own-nkn-openapi.tld blocks --hash 0d48328a5005e7455c6a5e2a0b5bc346b09fbae129f1775589be83657850656a
 ```
+
+---
 
 # Contribution
 * You can fork this, extend it and contribute back.
