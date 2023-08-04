@@ -18,7 +18,7 @@ type Client interface {
 	// Addresses
 	GetAddresses() (*ResponseGetAddresses, error)
 	GetSingleAddress(string) (*ResponseGetSingleAddress, error)
-	GetAddressTransactions(string) (*ResponseGetTransaction, error)
+	GetAddressTransactions(string) (*ResponseGetAddressTransaction, error)
 
 	// Blocks
 	GetAllBlocks() (*ResponseGetBlock, error)
@@ -80,6 +80,9 @@ func (c *client) Next(in interface{}) error {
 	case *ResponseGetAddresses:
 		nextpage = x.Addresses.NextPageUrl
 		in = x
+	case *ResponseGetAddressTransaction:
+		nextpage = x.NextPageUrl
+		in = x
 	case *ResponseGetBlock:
 		nextpage = x.Blocks.NextPageUrl
 		in = x
@@ -94,6 +97,7 @@ func (c *client) Next(in interface{}) error {
 	}
 	c.rest.SetHostURL(nextpage)
 	_, err := c.rest.R().
+		SetQueryParam("per_page", "1000").
 		SetResult(in).
 		Get("")
 	if err != nil {
@@ -137,7 +141,7 @@ func (c *client) GetSingleAddress(address string) (out *ResponseGetSingleAddress
 	return
 }
 
-func (c *client) GetAddressTransactions(address string) (out *ResponseGetTransaction, err error) {
+func (c *client) GetAddressTransactions(address string) (out *ResponseGetAddressTransaction, err error) {
 	err = c.do(fmt.Sprintf("addresses/%s/transactions", address), &out)
 	return
 }

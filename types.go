@@ -1,14 +1,16 @@
 package client
 
+import "github.com/nknorg/nkn/v2/common"
+
 type MetaData struct {
-	From         int    `json:"from,omitempty"`
-	To           int    `json:"to,omitempty"`
-	PerPage      int    `json:"per_page,omitempty"`
-	CurrentPage  int    `json:"current_page,omitempty"`
-	FirstPageURL string `json:"first_page_url,omitempty"`
-	PrevPageUrl  string `json:"prev_page_url,omitempty"`
-	NextPageUrl  string `json:"next_page_url,omitempty"`
-	Path         string `json:"path,omitempty"`
+	From         int         `json:"from,omitempty"`
+	To           int         `json:"to,omitempty"`
+	PerPage      interface{} `json:"per_page,omitempty"`
+	CurrentPage  int         `json:"current_page,omitempty"`
+	FirstPageURL string      `json:"first_page_url,omitempty"`
+	PrevPageUrl  string      `json:"prev_page_url,omitempty"`
+	NextPageUrl  string      `json:"next_page_url,omitempty"`
+	Path         string      `json:"path,omitempty"`
 }
 
 func (m *MetaData) HasMore() bool {
@@ -61,6 +63,22 @@ type ResponseGetSingleAddress struct {
 
 // Transactions
 
+type ResponseGetAddressTransaction struct {
+	*MetaData
+	Data []struct {
+		ID          int    `json:"id"`
+		BlockID     int    `json:"block_id"`
+		Attributs   string `json:"attributes"`
+		Fee         int    `json:"fee"`
+		Hash        string `json:"hash"`
+		Nonce       string `json:"nonce"`
+		TxType      string `json:"txType"`
+		BlockHeight int    `json:"block_height"`
+		CreatedAt   string `json:"created_at"`
+		Payload     *TransactionPayload
+	} `json:"data"`
+}
+
 type ResponseGetTransaction struct {
 	ID          int    `json:"id"`
 	BlockID     int    `json:"block_id"`
@@ -95,38 +113,38 @@ type ResponseGetAllTransactions struct {
 }
 
 type TransactionPayload struct {
-	ID                int      `json:"id"`
-	TransactionID     int      `json:"transaction_id"`
-	PayloadType       string   `json:"payloadType"`
-	Sender            string   `json:"sender"`
-	SenderWallet      string   `json:"senderWallet"`
-	Recipient         string   `json:"recipient"`
-	RecipientWallet   string   `json:"recipientWallet"`
-	Amount            int      `json:"amount"`
-	Submitter         string   `json:"submitter"`
-	Registrant        string   `json:"registrant"`
-	RegistrantWallet  string   `json:"registrantWallet"`
-	Name              string   `json:"name"`
-	Subscriber        string   `json:"subscriber"`
-	Identifier        string   `json:"identifier"`
-	Topic             string   `json:"topic"`
-	Bucket            int      `json:"bucket"`
-	Duration          int      `json:"duration"`
-	Meta              string   `json:"meta"`
-	PublicKey         string   `json:"public_key"`
-	RegistrationFee   int      `json:"registration_fee"`
-	Nonce             string   `json:"nonce"`
-	TXNExpiration     string   `json:"txn_expiration"`
-	Symbol            string   `json:"symbol"`
-	TotalSupply       int      `json:"total_supply"`
-	Precision         int      `json:"precision"`
-	NanoPayExpiration string   `json:"nano_pay_expiration"`
-	SignerPK          string   `json:"signerPk"`
-	AddedAt           string   `json:"added_at"`
-	CreatedAt         string   `json:"created_at"`
-	GenerateWallet    string   `json:"generateWallet"`
-	SubscriberWallet  string   `json:"subscriberWallet"`
-	Sigchain          SigChain `json:"sigchain"`
+	ID                int            `json:"id"`
+	TransactionID     int            `json:"transaction_id"`
+	PayloadType       string         `json:"payloadType"`
+	Sender            string         `json:"sender"`
+	SenderWallet      string         `json:"senderWallet"`
+	Recipient         string         `json:"recipient"`
+	RecipientWallet   string         `json:"recipientWallet"`
+	Amount            common.Fixed64 `json:"amount"`
+	Submitter         string         `json:"submitter"`
+	Registrant        string         `json:"registrant"`
+	RegistrantWallet  string         `json:"registrantWallet"`
+	Name              string         `json:"name"`
+	Subscriber        string         `json:"subscriber"`
+	Identifier        string         `json:"identifier"`
+	Topic             string         `json:"topic"`
+	Bucket            int            `json:"bucket"`
+	Duration          int            `json:"duration"`
+	Meta              string         `json:"meta"`
+	PublicKey         string         `json:"public_key"`
+	RegistrationFee   int            `json:"registration_fee"`
+	Nonce             string         `json:"nonce"`
+	TXNExpiration     int            `json:"txn_expiration"`
+	Symbol            string         `json:"symbol"`
+	TotalSupply       int            `json:"total_supply"`
+	Precision         int            `json:"precision"`
+	NanoPayExpiration int            `json:"nano_pay_expiration"`
+	SignerPK          string         `json:"signerPk"`
+	AddedAt           string         `json:"added_at"`
+	CreatedAt         string         `json:"created_at"`
+	GenerateWallet    string         `json:"generateWallet"`
+	SubscriberWallet  string         `json:"subscriberWallet"`
+	Sigchain          SigChain       `json:"sigchain"`
 }
 
 type ResponseGetBlockByHeight struct {
