@@ -39,6 +39,9 @@ type Client interface {
 	StatsTransactionsPerDay() ([]*ResponseStatsTransactionsPerDay, error)
 	StatsSupplies() (*ResponseStatsSupply, error)
 
+	SetDebug(debug bool)
+	SetAddress(address string)
+
 	Next(interface{}) error
 }
 
@@ -48,7 +51,6 @@ func New() Client {
 	c.EnableTrace()
 	c.SetHeader("Content-Type", "application/json")
 	c.SetHeader("Accept", "application/json")
-	c.SetHostURL("https://openapi.nkn.org/api/v1/")
 	c.SetTimeout(time.Second * 10)
 	c.SetRetryCount(3)
 

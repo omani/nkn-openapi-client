@@ -8,7 +8,6 @@ import (
 	"github.com/jedib0t/go-pretty/table"
 	"github.com/jedib0t/go-pretty/text"
 	"github.com/nknorg/nkn/v2/common"
-	client "github.com/omani/nkn-openapi-client"
 	"github.com/spf13/cobra"
 )
 
@@ -47,7 +46,6 @@ func runTransactions() error {
 	t.SetOutputMirror(mw)
 	t.SetAlign([]text.Align{text.AlignCenter, text.AlignCenter})
 
-	c := client.New()
 	resp, err := c.GetAddressTransactions(nknaddress)
 	if err != nil {
 		return err

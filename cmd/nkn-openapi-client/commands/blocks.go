@@ -8,7 +8,6 @@ import (
 
 	"github.com/jedib0t/go-pretty/table"
 	"github.com/jedib0t/go-pretty/text"
-	client "github.com/omani/nkn-openapi-client"
 	"github.com/spf13/cobra"
 )
 
@@ -44,8 +43,6 @@ func runBlocks() error {
 	t.SetOutputMirror(mw)
 	t.SetAlign([]text.Align{text.AlignCenter, text.AlignCenter})
 	t.AppendHeader(table.Row{"created at", "block height", "block hash", "size", "#txn", "miner wallet", "benificiary"})
-
-	c := client.New()
 
 	if height > 0 {
 		resp, err := c.GetBlockByHeight(height)
