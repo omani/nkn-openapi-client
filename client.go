@@ -170,7 +170,6 @@ func (c *client) GetTransactionsByBlockHeight(height int) (out *ResponseGetTrans
 }
 
 func (c *client) GetTransactionsByBlockHash(hash string) (out *ResponseGetTransaction, err error) {
-	fmt.Println(fmt.Sprintf("blocks/%s/transactions", hash))
 	err = c.do(fmt.Sprintf("blocks/%s/transactions", hash), &out)
 	return
 }
