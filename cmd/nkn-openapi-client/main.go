@@ -3,7 +3,7 @@ package main
 import (
 	"log"
 
-	cmd "github.com/omani/nkn-openapi-client/cmd/commands"
+	cmd "github.com/omani/nkn-openapi-client/cmd/nkn-openapi-client/commands"
 )
 
 func main() {
