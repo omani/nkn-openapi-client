@@ -29,8 +29,8 @@ var (
 func init() {
 	rootCmd.AddCommand(blocksCmd)
 
-	blocksCmd.Flags().IntVarP(&height, "height", "e", 0, "Fetch block with given block height")
-	blocksCmd.Flags().StringVarP(&hash, "hash", "a", "", "Fetch block with given block hash. Special case is 'latest' which will return the lastest mined block.")
+	blocksCmd.Flags().IntVar(&height, "height", 0, "Fetch block with given block height")
+	blocksCmd.Flags().StringVar(&hash, "hash", "", "Fetch block with given block hash. Special case is 'latest' which will return the lastest mined block.")
 }
 
 func runBlocks() error {
