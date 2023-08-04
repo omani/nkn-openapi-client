@@ -1,7 +1,11 @@
 <p align="center"><img src="media/logo.png" width="150"></p>
 
 # nkn-openapi-client
-A client library for the NKN OpenAPI written in go
+A client library for the [NKN OpenAPI](https://github.com/rule110-io/nkn-open-api) written in go
+
+> NKN OpenAPI is an NKN blockchain database abstraction with a neat query interface.
+
+## Example
 
 ```go
 package main
