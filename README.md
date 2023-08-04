@@ -29,7 +29,7 @@ cd cmd
 go run main.go blocks --hash 0d48328a5005e7455c6a5e2a0b5bc346b09fbae129f1775589be83657850656a
 ```
 
-### Use your own NKN OpenAPI instance by providing an `address` flag
+### Use your own NKN OpenAPI instance by providing an `url` flag
 ```
 cd cmd
 go run main.go --url https://my-own-nkn-openapi.tld blocks --hash 0d48328a5005e7455c6a5e2a0b5bc346b09fbae129f1775589be83657850656a
