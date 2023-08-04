@@ -68,7 +68,7 @@ type ResponseGetAddressTransaction struct {
 	Data []struct {
 		ID          int    `json:"id"`
 		BlockID     int    `json:"block_id"`
-		Attributs   string `json:"attributes"`
+		Attributes  string `json:"attributes"`
 		Fee         int    `json:"fee"`
 		Hash        string `json:"hash"`
 		Nonce       string `json:"nonce"`
@@ -82,7 +82,7 @@ type ResponseGetAddressTransaction struct {
 type ResponseGetTransaction struct {
 	ID          int    `json:"id"`
 	BlockID     int    `json:"block_id"`
-	Attributs   string `json:"attributes"`
+	Attributes  string `json:"attributes"`
 	Fee         int    `json:"fee"`
 	Hash        string `json:"hash"`
 	Nonce       string `json:"nonce"`
@@ -98,7 +98,7 @@ type ResponseGetAllTransactions struct {
 		Data []struct {
 			ID          int    `json:"id"`
 			BlockID     int    `json:"block_id"`
-			Attributs   string `json:"attributes"`
+			Attributes  string `json:"attributes"`
 			Fee         int    `json:"fee"`
 			Hash        string `json:"hash"`
 			Nonce       string `json:"nonce"`
