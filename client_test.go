@@ -20,7 +20,7 @@ type exampleBlock struct {
 type exampleTXN struct {
 	ID          int    `json:"id"`
 	BlockID     int    `json:"block_id"`
-	Attributs   string `json:"attributes"`
+	Attributes  string `json:"attributes"`
 	Fee         int    `json:"fee"`
 	Hash        string `json:"hash"`
 	Nonce       string `json:"nonce"`
@@ -30,12 +30,21 @@ type exampleTXN struct {
 	Payload     *TransactionPayload
 }
 
-var wallet exampleWallet
-var block exampleBlock
-var txn exampleTXN
+var (
+	wallet exampleWallet
+	block  exampleBlock
+	txn    exampleTXN
+	c      Client
+)
+
+func getClient() Client {
+	c := New()
+	c.SetAddress("https://openapi.nkn.org/api/v1/")
+	return c
+}
 
 func TestGetRegisteredNames(t *testing.T) {
-	c := New()
+	c := getClient()
 	resp, err := c.GetRegisteredNames()
 	if err != nil {
 		t.Fatal(err)
@@ -61,7 +70,7 @@ func TestGetRegisteredNames(t *testing.T) {
 }
 
 func TestGetRegisteredNamesByAddress(t *testing.T) {
-	c := New()
+	c := getClient()
 	resp, err := c.GetRegisteredNamesByAddress(wallet.address)
 	if err != nil {
 		t.Fatal(err)
@@ -72,7 +81,7 @@ func TestGetRegisteredNamesByAddress(t *testing.T) {
 }
 
 func TestGetRegisteredNamesByName(t *testing.T) {
-	c := New()
+	c := getClient()
 	resp, err := c.GetAddressByRegisteredName(wallet.name)
 	if err != nil {
 		t.Fatal(err)
@@ -83,7 +92,7 @@ func TestGetRegisteredNamesByName(t *testing.T) {
 }
 
 func TestGetAddresses(t *testing.T) {
-	c := New()
+	c := getClient()
 	resp, err := c.GetAddresses()
 	if err != nil {
 		t.Error(err)
@@ -108,7 +117,7 @@ func TestGetAddresses(t *testing.T) {
 }
 
 func TestGetSingleAddress(t *testing.T) {
-	c := New()
+	c := getClient()
 	resp, err := c.GetSingleAddress(wallet.address)
 	if err != nil {
 		t.Error(err)
@@ -120,7 +129,7 @@ func TestGetSingleAddress(t *testing.T) {
 }
 
 func TestGetAddressTransactions(t *testing.T) {
-	c := New()
+	c := getClient()
 	resp, err := c.GetAddressTransactions(wallet.address)
 	if err != nil {
 		t.Error(err)
@@ -132,7 +141,7 @@ func TestGetAddressTransactions(t *testing.T) {
 }
 
 func TestGetAllBlocks(t *testing.T) {
-	c := New()
+	c := getClient()
 	resp, err := c.GetAllBlocks()
 	if err != nil {
 		t.Error(err)
@@ -141,6 +150,7 @@ func TestGetAllBlocks(t *testing.T) {
 		t.Fatalf("Response has no data")
 	}
 
+	fmt.Println(len(resp.Blocks.Data))
 	fmt.Printf("[TestGetAllBlocks] %#v\n", resp.Blocks.Data[0])
 	block = resp.Blocks.Data[0]
 
@@ -157,7 +167,7 @@ func TestGetAllBlocks(t *testing.T) {
 }
 
 func TestGetBlockByHeight(t *testing.T) {
-	c := New()
+	c := getClient()
 	resp, err := c.GetBlockByHeight(block.ID)
 	if err != nil {
 		t.Error(err)
@@ -169,7 +179,7 @@ func TestGetBlockByHeight(t *testing.T) {
 }
 
 func TestGetBlockByHash(t *testing.T) {
-	c := New()
+	c := getClient()
 	resp, err := c.GetBlockByHash(block.Hash)
 	if err != nil {
 		t.Error(err)
@@ -181,7 +191,7 @@ func TestGetBlockByHash(t *testing.T) {
 }
 
 func TestGetTransactionsByBlockHeight(t *testing.T) {
-	c := New()
+	c := getClient()
 	resp, err := c.GetTransactionsByBlockHeight(block.ID)
 	if err != nil {
 		t.Error(err)
@@ -195,7 +205,7 @@ func TestGetTransactionsByBlockHeight(t *testing.T) {
 // according to docs querying txn by block hash is possible. but it isn't.
 // reported bug to rule110 team on discord https://discord.com/channels/443413382737952778/724296220222160946
 // func TestGetTransactionsByBlockHash(t *testing.T) {
-// 	c := New()
+// c := getClient()
 // 	resp, err := c.GetTransactionsByBlockHash(block.Hash)
 // 	if err != nil {
 // 		t.Error(err)
@@ -209,7 +219,7 @@ func TestGetTransactionsByBlockHeight(t *testing.T) {
 // }
 
 func TestGetAllSigchains(t *testing.T) {
-	c := New()
+	c := getClient()
 	resp, err := c.GetAllSigchains()
 	if err != nil {
 		t.Error(err)
@@ -231,7 +241,7 @@ func TestGetAllSigchains(t *testing.T) {
 }
 
 func TestGetAllTransactions(t *testing.T) {
-	c := New()
+	c := getClient()
 	resp, err := c.GetAllTransactions()
 	if err != nil {
 		t.Error(err)
@@ -264,7 +274,7 @@ func TestGetAllTransactions(t *testing.T) {
 }
 
 func TestGetTransactionByHash(t *testing.T) {
-	c := New()
+	c := getClient()
 	resp, err := c.GetTransactionByHash(txn.Hash)
 	if err != nil {
 		t.Error(err)
@@ -276,7 +286,7 @@ func TestGetTransactionByHash(t *testing.T) {
 }
 
 func TestStatsBlocksPerDay(t *testing.T) {
-	c := New()
+	c := getClient()
 	resp, err := c.StatsBlocksPerDay()
 	if err != nil {
 		t.Error(err)
@@ -288,7 +298,7 @@ func TestStatsBlocksPerDay(t *testing.T) {
 }
 
 func TestStatsTransactionsPerDay(t *testing.T) {
-	c := New()
+	c := getClient()
 	resp, err := c.StatsTransactionsPerDay()
 	if err != nil {
 		t.Error(err)
@@ -300,7 +310,7 @@ func TestStatsTransactionsPerDay(t *testing.T) {
 }
 
 func TestStatsSupplies(t *testing.T) {
-	c := New()
+	c := getClient()
 	resp, err := c.StatsSupplies()
 	if err != nil {
 		t.Error(err)
