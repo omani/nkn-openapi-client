@@ -8,7 +8,7 @@ import (
 	resty "github.com/go-resty/resty/v2"
 )
 
-// Client is a monero-wallet-rpc client.
+// Client is an NKN OpenAPI client
 type Client interface {
 	// Addressbook
 	GetRegisteredNames() (*ResponseGetRegisteredName, error)
@@ -45,7 +45,7 @@ type Client interface {
 	Next(interface{}) error
 }
 
-// New returns a new monero-wallet-rpc client.
+// New returns a new Client
 func New() Client {
 	c := resty.New()
 	c.EnableTrace()
