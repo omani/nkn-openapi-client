@@ -40,3 +40,17 @@ go run main.go blocks --hash 0d48328a5005e7455c6a5e2a0b5bc346b09fbae129f1775589b
 cd cmd
 go run main.go --url https://my-own-nkn-openapi.tld blocks --hash 0d48328a5005e7455c6a5e2a0b5bc346b09fbae129f1775589be83657850656a
 ```
+
+# Contribution
+* You can fork this, extend it and contribute back.
+* You can contribute with pull requests.
+
+# Donations
+I accept payments and donations in BTC:
+
+<img src="https://raw.githubusercontent.com/bitpay/bitcoin-brand/master/bitcoin.svg" width="16" height="16" /> `bc1qgezvfp4s0xme8pdv6aaqu9ayfgnv4mejdlv3tx`
+
+# LICENSE
+MIT License
+
+
