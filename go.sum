@@ -31,8 +31,8 @@ github.com/mitchellh/mapstructure v1.5.0 h1:jeMsZIYE/09sWLaz43PL7Gy6RuMjD2eJVyua
 github.com/mitchellh/mapstructure v1.5.0/go.mod h1:bFUtVrKA4DC2yAKiSyO/QUcy7e+RRV2QTWOzhPopBRo=
 github.com/montanaflynn/stats v0.0.0-20171201202039-1bf9dbcd8cbe/go.mod h1:wL8QJuTMNUDYhXwkmfOly8iTdp5TEcJFWZD2D7SIkUc=
 github.com/niemeyer/pretty v0.0.0-20200227124842-a10e7caefd8e/go.mod h1:zD1mROLANZcx1PVRCS0qkT7pwLkGfwJo4zjcN/Tysno=
-github.com/nknorg/nkn/v2 v2.2.0 h1:sXOawvVF/T3bBTuWbzBCyrGuxldA3be+f+BDjoWcOEA=
-github.com/nknorg/nkn/v2 v2.2.0/go.mod h1:yv3jkg0aOtN9BDHS4yerNSZJtJNBfGvlaD5K6wL6U3E=
+github.com/nknorg/nkn/v2 v2.2.1-0.20230802141232-de5a1bcb7d18 h1:ls6jUaf7KvluolEQxRoKihTKeQFY/k296OJQV9sHUFs=
+github.com/nknorg/nkn/v2 v2.2.1-0.20230802141232-de5a1bcb7d18/go.mod h1:yv3jkg0aOtN9BDHS4yerNSZJtJNBfGvlaD5K6wL6U3E=
 github.com/oklog/ulid v1.3.1 h1:EGfNDEx6MqHz8B3uNV6QAib1UR2Lm97sHi3ocA6ESJ4=
 github.com/oklog/ulid v1.3.1/go.mod h1:CirwcVhetQ6Lv90oh/F+FBtV6XMibvdAFo93nm5qn4U=
 github.com/patrickmn/go-cache v2.1.0+incompatible h1:HRMgzkcYKYpi3C8ajMPV8OFXaaRUnok+kx1WdO15EQc=

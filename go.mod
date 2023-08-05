@@ -5,7 +5,7 @@ go 1.20
 require (
 	github.com/go-resty/resty/v2 v2.7.0
 	github.com/jedib0t/go-pretty v4.3.0+incompatible
-	github.com/nknorg/nkn/v2 v2.2.0
+	github.com/nknorg/nkn/v2 v2.2.1-0.20230802141232-de5a1bcb7d18
 	github.com/spf13/cobra v1.7.0
 )
 
