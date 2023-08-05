@@ -1,6 +1,6 @@
 <p align="center"><img src="media/logo.png" width="150"></p>
 
-[![Go Reference](https://pkg.go.dev/badge/omani/nkn-openapi-client.svg)](https://pkg.go.dev/omani/nkn-openapi-client)
+[![Go Reference](https://pkg.go.dev/badge/github.com/omani/nkn-openapi-client.svg)](https://pkg.go.dev/github.com/omani/nkn-openapi-client)
 
 # nkn-openapi-client
 A client library for the [NKN OpenAPI](https://github.com/rule110-io/nkn-open-api) written in go
